@@ -66,7 +66,7 @@ export const MovieList = ({ useMovieListContext }) => {
   const myRef = useRef(null)
   const { movies, searchTerm, busy, error, nextPage } = useMovieListContext()
   const empty = (!movies || !movies.length) && searchTerm && !busy && !error
-  const untouched = !empty && !busy && !searchTerm && !error
+  const untouched = !empty && !busy && !searchTerm
 
   const NextPage = () => (
     <Button onClick={() => {
@@ -85,7 +85,7 @@ export const MovieList = ({ useMovieListContext }) => {
 
   return (
     <Wrapper ref={myRef}>
-      {error && !busy && <Error {...{ error }} />}
+      {error && !busy && !untouched && <Error {...{ error }} />}
       {empty && <EmptyList />}
       {busy && <BusyIndicator />}
       {untouched && <Untouched />}
