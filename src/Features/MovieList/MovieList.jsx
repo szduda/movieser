@@ -89,10 +89,10 @@ export const MovieList = ({ useMovieListContext }) => {
       {empty && <EmptyList />}
       {busy && <BusyIndicator />}
       {untouched && <Untouched />}
-      {movies.map((item, key) =>
+      {!untouched && movies.map((item, key) =>
         <Box {...{ key, item }} />
       )}
-      {movies && !!movies.length && <NextPage />}
+      {!untouched && movies && !!movies.length && <NextPage />}
     </Wrapper>
   )
 }

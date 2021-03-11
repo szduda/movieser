@@ -17,7 +17,6 @@ export const movieListReducer = (state, action) => {
     case 'setSearchTerm':
       return {
         ...state,
-        searchResults: [],
         searchTerm: payload.term,
         page: 1
       }

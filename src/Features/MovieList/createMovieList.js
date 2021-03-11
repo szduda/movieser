@@ -24,6 +24,7 @@ export const createMovieList = ({ DataService }) => {
         return
 
       const asyncEff = async () => {
+        setMovies.current({ movies: [], total: 0 })
         setBusy(true)
         const { movies, total, error } = await fetchMovies.current({
           searchTerm: debouncedSearchTerm.trim(),
