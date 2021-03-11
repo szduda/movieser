@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useStore } from '../../StateManager/Store'
 import { MovieList } from './MovieList'
+import { useDebounce } from '../../useDebounce'
 
 const PAGE_SIZE = 10
 
@@ -16,14 +17,16 @@ export const createMovieList = ({ DataService }) => {
     const fetchMovies = useRef(DataService.fetchMovies)
     const setMovies = useRef(actions.movieList.setMovies)
 
+    const debouncedSearchTerm = useDebounce(searchTerm, 500)
+
     useEffect(() => {
-      if (!searchTerm || searchTerm.length < 3)
+      if (!debouncedSearchTerm || debouncedSearchTerm.length < 3)
         return
 
       const asyncEff = async () => {
         setBusy(true)
         const { movies, total, error } = await fetchMovies.current({
-          searchTerm: searchTerm.trim(),
+          searchTerm: debouncedSearchTerm.trim(),
           page
         })
         setMovies.current({ movies, total })
@@ -31,11 +34,11 @@ export const createMovieList = ({ DataService }) => {
         setBusy(false)
       }
       asyncEff()
-    }, [fetchMovies, setMovies, searchTerm, page])
+    }, [fetchMovies, setMovies, debouncedSearchTerm, page])
 
     return {
       movies: searchResults || [],
-      searchTerm,
+      searchTerm: debouncedSearchTerm,
       busy,
       error,
       nextPage: page * PAGE_SIZE < total && (() => setPage(page + 1)),

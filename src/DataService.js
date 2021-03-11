@@ -3,7 +3,7 @@ export const DataService = {
     if (!searchTerm) return { movies: [], total: 0 }
 
     try {
-      const res = await fetch(`http://www.omdbapi.com/?s=${encodeURIComponent(searchTerm)}&p=${page}&apikey=a8d23117`)
+      const res = await fetch(`http://www.omdbapi.com/?s=${encodeURIComponent(searchTerm)}&page=${page}&apikey=a8d23117`)
       const data = await res.json()
       if(data.Response === 'True') 
         return { movies: data.Search, total: data.totalResults }
