@@ -25,9 +25,9 @@ export const Icons = {
 }
 
 const Col = forwardRef(({ align, valign, ...props }, ref) => (
-  <div 
-  ref={ref}
-  css={css`
+  <div
+    ref={ref}
+    css={css`
     display: flex;
     flex-direction: column;
     justify-content: ${valign || 'flex-start'};
@@ -167,6 +167,29 @@ export const Theme = props => (
     
     a:hover {
       text-decoration: underline;
+    }
+
+    @-webkit-keyframes rotate-center {
+      0% {
+        transform: rotate(0);
+      }
+      40% {
+        transform: rotate(360deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes rotate-center {
+      0% {
+        transform: rotate(0);
+      }
+      40% {
+        transform: rotate(360deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
   `} {...props} />
 )

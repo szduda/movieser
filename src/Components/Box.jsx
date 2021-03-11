@@ -36,32 +36,19 @@ const DateTitle = ({ title }) => (
   </h2>
 )
 
-const Description = ({ plot }) => (
-  <p css={css`padding-bottom: 16px;`}>
-    {plot}
-  </p>
-)
-
 export const Box = ({ item }) => {
-  const { Title, Plot, Genre, Year, Director, Actors, Runtime, Poster } = item || {}
+  const { Title, Genre, Year, Director, Runtime, Poster } = item || {}
 
   return (
     <Wrapper>
       <Flex.Row css={css`color: ${colors.grayLight}; margin: 8px 0; font-variant: all-small-caps; font-weight: bold`}>
         <span>{Year}</span>
-        <span>{Genre}</span>
-        <span>{Runtime}</span>
       </Flex.Row>
       <ContentWrapper>
         <img src={Poster} alt={`${Title} poster`} css={css`max-width: 70%; margin: 0 16px 16px 0;`} />
         <Flex.Col>
           <DateTitle title={Title} />
           <h3 css={css`padding-bottom: 16px;`}>by {Director}</h3>
-          <Description plot={Plot} />
-          <div>
-            <h3>starring</h3>
-            <p>{Actors}</p>
-          </div>
         </Flex.Col>
       </ContentWrapper>
     </Wrapper>

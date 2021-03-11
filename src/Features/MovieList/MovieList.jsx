@@ -23,11 +23,26 @@ const EmptyList = () => (
   </span>
 )
 
+const BusyIndicator = () => (
+  <span css={css`
+  padding: 5vh 12px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 48px;
+  color: ${colors.white};
+  text-align: center;
+  animation: rotate-center 1.6s ease-in-out 1s infinite;
+`}>
+  loading...
+</span>
+)
+
 export const MovieList = ({ useMovieListContext }) => {
-  const { movies } = useMovieListContext()
+  const { movies, searchTerm, busy } = useMovieListContext()
   return (
     <Wrapper>
-      {(!movies || !movies.length) && <EmptyList />}
+      {(!movies || !movies.length) && searchTerm && !busy && <EmptyList />}
+      {busy && <BusyIndicator />}
       {movies.map((item, key) =>
         <Box {...{ key, item }} />
       )}
