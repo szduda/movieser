@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-import { ReactComponent as AddIcon } from './assets/icons/add.svg';
+import { ReactComponent as SearchIcon } from './assets/icons/search.svg';
 import { forwardRef } from 'react';
 
 export const colors = {
@@ -20,8 +20,8 @@ export const colors = {
 }
 
 export const Icons = {
-  Add: ({ color = colors.white, ...rest }) =>
-    <AddIcon css={css`fill: ${color}`} {...rest} />
+  Search: ({ color = colors.white, ...rest }) =>
+    <SearchIcon css={css`fill: ${color}`} {...rest} />
 }
 
 const Col = forwardRef(({ align, valign, ...props }, ref) => (
@@ -183,9 +183,14 @@ export const Button = ({ ...rest }) => (
     justify-content: center;
     transition: transform 100ms ease-out;
     padding: 8px;
+    cursor: pointer;
     
     *:active, :active {
       transform: scaleX(0.97);
+    }
+
+    :hover svg path {
+      fill: white;
     }
   `} {...rest} />
 )

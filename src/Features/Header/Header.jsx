@@ -32,7 +32,7 @@ const SearchInput = () => (
   <div css={css`display: flex; align-items: center;`}>
     <input type="text" placeholder="Enter movie title..." />
     <Button>
-      <Icons.Add />
+      <Icons.Search />
     </Button>
   </div>
 )
