@@ -28,20 +28,21 @@ const Title = () => (
   </a>
 )
 
-const SearchInput = () => (
+const SearchInput = props => (
   <div css={css`display: flex; align-items: center;`}>
-    <input type="text" placeholder="Enter movie title..." />
+    <input type="text" placeholder="Enter movie title..." {...props} />
     <Button>
       <Icons.Search />
     </Button>
   </div>
 )
 
-export const Header = () => {
+export const Header = ({ useHeaderContext }) => {
+  const { searchTerm, search } = useHeaderContext()
   return (
     <Wrapper>
       <Title />
-      <SearchInput />
+      <SearchInput value={searchTerm} onChange={e => search(e.target.value)} />
     </Wrapper>
   )
 }

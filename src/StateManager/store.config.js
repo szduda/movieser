@@ -3,7 +3,7 @@ import {
   defaultState as movieListDefault,
   movieListReducer,
   movieListActions,
-} from '../Features/MovieList/movieList.store'
+} from './movieList.store'
 
 export const initialState = {
   movieList: movieListDefault,

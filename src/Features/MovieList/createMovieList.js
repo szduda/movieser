@@ -10,27 +10,35 @@ export const createMovieList = ({ DataService }) => {
     const { searchResults, searchTerm, page, total } = state.movieList
     const { setPage } = actions.movieList
 
-    const [busy, setBusy] = useState(true)
+    const [busy, setBusy] = useState(false)
+    const [error, setError] = useState(null)
 
     const fetchMovies = useRef(DataService.fetchMovies)
     const setMovies = useRef(actions.movieList.setMovies)
 
     useEffect(() => {
+      if (!searchTerm || searchTerm.length < 3)
+        return
+
       const asyncEff = async () => {
         setBusy(true)
-        const { movies, total } = await fetchMovies.current({ searchTerm, page })
+        const { movies, total, error } = await fetchMovies.current({
+          searchTerm: searchTerm.trim(),
+          page
+        })
         setMovies.current({ movies, total })
+        setError(error)
         setBusy(false)
       }
       asyncEff()
     }, [fetchMovies, setMovies, searchTerm, page])
 
-    console.log('szd', searchResults)
     return {
       movies: searchResults || [],
       searchTerm,
       busy,
-      nextPage: () => page * PAGE_SIZE < total && setPage(page + 1),
+      error,
+      nextPage: page * PAGE_SIZE < total && (() => setPage(page + 1)),
     }
   }
 

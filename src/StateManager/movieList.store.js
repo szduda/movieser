@@ -10,9 +10,21 @@ export const movieListReducer = (state, action) => {
   switch (type) {
     case 'setMovies':
       return {
-        ...state, 
+        ...state,
         searchResults: payload.movies,
         total: payload.total
+      }
+    case 'setSearchTerm':
+      return {
+        ...state,
+        searchResults: [],
+        searchTerm: payload.term,
+        page: 1
+      }
+    case 'setPage':
+      return {
+        ...state,
+        page: payload
       }
 
     default:
@@ -25,4 +37,12 @@ export const movieListActions = {
     type: 'setMovies',
     payload
   }),
+  setSearchTerm: payload => ({
+    type: 'setSearchTerm',
+    payload
+  }),
+  setPage: payload => ({
+    type: 'setPage',
+    payload
+  })
 }
