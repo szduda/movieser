@@ -15,7 +15,7 @@ const Wrapper = (props: any) => (
 )
 
 const Title = () => (
-  <a href="/">
+  <a href="https://szduda.github.io/movieser/">
     <h1 css={css`
       display: inline-flex;
       flex-direction: column; 
