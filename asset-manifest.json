@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/movieser/static/js/main.b346b515.chunk.js",
+    "main.js.map": "/movieser/static/js/main.b346b515.chunk.js.map",
+    "runtime-main.js": "/movieser/static/js/runtime-main.376ebd93.js",
+    "runtime-main.js.map": "/movieser/static/js/runtime-main.376ebd93.js.map",
+    "static/js/2.e5fd015d.chunk.js": "/movieser/static/js/2.e5fd015d.chunk.js",
+    "static/js/2.e5fd015d.chunk.js.map": "/movieser/static/js/2.e5fd015d.chunk.js.map",
+    "index.html": "/movieser/index.html",
+    "precache-manifest.a192eea70af3561b99d103ae4301b753.js": "/movieser/precache-manifest.a192eea70af3561b99d103ae4301b753.js",
+    "service-worker.js": "/movieser/service-worker.js",
+    "static/js/2.e5fd015d.chunk.js.LICENSE.txt": "/movieser/static/js/2.e5fd015d.chunk.js.LICENSE.txt",
+    "static/media/search.306d39c6.svg": "/movieser/static/media/search.306d39c6.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.376ebd93.js",
+    "static/js/2.e5fd015d.chunk.js",
+    "static/js/main.b346b515.chunk.js"
+  ]
+}
