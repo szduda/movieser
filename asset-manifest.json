@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/movieser/static/js/main.5519017e.chunk.js",
-    "main.js.map": "/movieser/static/js/main.5519017e.chunk.js.map",
+    "main.js": "/movieser/static/js/main.b0fc6259.chunk.js",
+    "main.js.map": "/movieser/static/js/main.b0fc6259.chunk.js.map",
     "runtime-main.js": "/movieser/static/js/runtime-main.376ebd93.js",
     "runtime-main.js.map": "/movieser/static/js/runtime-main.376ebd93.js.map",
     "static/js/2.e5fd015d.chunk.js": "/movieser/static/js/2.e5fd015d.chunk.js",
     "static/js/2.e5fd015d.chunk.js.map": "/movieser/static/js/2.e5fd015d.chunk.js.map",
     "index.html": "/movieser/index.html",
-    "precache-manifest.acfb504c07ff84cb5a3505d4bb6f4a19.js": "/movieser/precache-manifest.acfb504c07ff84cb5a3505d4bb6f4a19.js",
+    "precache-manifest.b0d6bb4606c33926d7d36efe05b43307.js": "/movieser/precache-manifest.b0d6bb4606c33926d7d36efe05b43307.js",
     "service-worker.js": "/movieser/service-worker.js",
     "static/js/2.e5fd015d.chunk.js.LICENSE.txt": "/movieser/static/js/2.e5fd015d.chunk.js.LICENSE.txt",
     "static/media/search.306d39c6.svg": "/movieser/static/media/search.306d39c6.svg"
@@ -15,6 +15,6 @@
   "entrypoints": [
     "static/js/runtime-main.376ebd93.js",
     "static/js/2.e5fd015d.chunk.js",
-    "static/js/main.5519017e.chunk.js"
+    "static/js/main.b0fc6259.chunk.js"
   ]
 }
