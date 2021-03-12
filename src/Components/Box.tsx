@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { jsx, css, } from '@emotion/core'
 import { colors, Flex } from '../theme'
+import { Movie } from '../types'
 
-const Wrapper = props => (
+const Wrapper = (props: any) => (
   <Flex.Col
     valign="space-between"
     css={css`
@@ -16,7 +17,7 @@ const Wrapper = props => (
     `} {...props} />
 )
 
-const DateTitle = ({ title }) => (
+const DateTitle = ({ title }: { title: string }) => (
   <h2 css={css`
     color: ${colors.gray};
     font-variant: all-small-caps;
@@ -26,7 +27,7 @@ const DateTitle = ({ title }) => (
   </h2>
 )
 
-export const Box = ({ item }) => {
+export const Box = ({ item }: { item: Movie }) => {
   const { Title, Year, Poster } = item || {}
 
   return (

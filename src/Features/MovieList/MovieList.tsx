@@ -3,8 +3,9 @@ import { useRef, forwardRef } from 'react'
 import { jsx, css } from '@emotion/core'
 import { Box } from '../../Components/Box'
 import { colors, Button } from '../../theme'
+import { Movie } from '../../types'
 
-const Wrapper = forwardRef((props, ref) => (
+const Wrapper = forwardRef((props : any, ref: any) => (
   <div ref={ref} css={css`
   padding: 68px 4px 64px;
   display: flex;
@@ -50,7 +51,7 @@ const Untouched = () => (
   </span>
 )
 
-const Error = ({ error }) => (
+const Error = ({ error }: { error: string }) => (
   <span css={css`
     padding: 5vh 12px;
     font-weight: 700;
@@ -62,8 +63,19 @@ const Error = ({ error }) => (
   </span>
 )
 
-export const MovieList = ({ useMovieListContext }) => {
-  const myRef = useRef(null)
+
+type MovieListContext = {
+  useMovieListContext: () => {
+    movies: Array<Movie>,
+    searchTerm: string,
+    busy: boolean,
+    error: string | null,
+    nextPage: (() => void) | null
+  }
+}
+
+export const MovieList = ({ useMovieListContext }: MovieListContext) => {
+  const myRef = useRef(null as any)
   const { movies, searchTerm, busy, error, nextPage } = useMovieListContext()
   const empty = (!movies || !movies.length) && searchTerm && !busy && !error
   const untouched = !empty && !busy && !searchTerm
@@ -79,7 +91,7 @@ export const MovieList = ({ useMovieListContext }) => {
         color: ${colors.yellow}; 
         font-weight: bold;
       `}>
-      {nextPage ? 'Next page' : 'No more results'}
+      {!!nextPage ? 'Next page' : 'No more results'}
     </Button>
   )
 

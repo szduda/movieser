@@ -1,8 +1,9 @@
 /** @jsx jsx */
+import React from 'react'
 import { jsx, css } from '@emotion/core'
 import { colors, Button, Icons } from '../../theme'
 
-const Wrapper = props => (
+const Wrapper = (props: any) => (
   <div css={css`
   background: ${colors.black};
   color: ${colors.white};
@@ -28,7 +29,7 @@ const Title = () => (
   </a>
 )
 
-const SearchInput = props => (
+const SearchInput = (props: any) => (
   <div css={css`display: flex; align-items: center;`}>
     <input type="text" placeholder="Enter movie title..." {...props} />
     <Button>
@@ -37,12 +38,22 @@ const SearchInput = props => (
   </div>
 )
 
-export const Header = ({ useHeaderContext }) => {
+type HeaderContext = {
+  useHeaderContext: () => {
+    search: (term: string) => void,
+    searchTerm: string
+  }
+}
+
+export const Header = ({ useHeaderContext }: HeaderContext) => {
   const { searchTerm, search } = useHeaderContext()
   return (
     <Wrapper>
       <Title />
-      <SearchInput value={searchTerm} onChange={e => search(e.target.value)} />
+      <SearchInput
+        value={searchTerm}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => search(e.target.value)}
+      />
     </Wrapper>
   )
 }

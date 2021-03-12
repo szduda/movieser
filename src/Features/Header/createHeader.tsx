@@ -9,7 +9,7 @@ export const createHeader = () => {
 
     return {
       searchTerm,
-      search: term => actions.movieList.setSearchTerm({ term })
+      search: (term: string) => actions.movieList.setSearchTerm({ term })
     }
   }
 

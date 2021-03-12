@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 import { ReactComponent as SearchIcon } from './assets/icons/search.svg';
-import { forwardRef } from 'react';
+import { forwardRef, Ref } from 'react';
 
-export const colors = {
+export const colors: { [key: string]: any } = {
   red: '#A03A29',
   yellow: '#E0993D',
   green: '#2A756B',
@@ -15,8 +15,8 @@ export const colors = {
   grayLight: '#808E88',
   gray: '#59706E',
   grayDark: '#2B3B3A',
-  darken: color => colors[`${Object.keys(colors).find(key => colors[key] === color)}Dark`] || color,
-  lighten: color => colors[`${Object.keys(colors).find(key => colors[key] === color)}Light`] || color
+  darken: (color: any): any => colors[`${Object.keys(colors).find(key => colors[key] === color)}Dark`] || color,
+  lighten: (color: any) => colors[`${Object.keys(colors).find(key => colors[key] === color)}Light`] || color
 }
 
 export const Icons = {
@@ -24,25 +24,22 @@ export const Icons = {
     <SearchIcon css={css`fill: ${color}`} {...rest} />
 }
 
-const Col = forwardRef(({ align, valign, ...props }, ref) => (
+const Col = forwardRef(({ align = 'flex-start', valign = 'flex-start', ...props }: any, ref: Ref<null>) => (
   <div
     ref={ref}
     css={css`
     display: flex;
     flex-direction: column;
-    justify-content: ${valign || 'flex-start'};
-    align-movies: ${align || 'flex-start'}
+    justify-content: ${valign};
+    align-movies: ${align}
   `} {...props} />
 ))
 
-const Row = ({ align, valign, wide, wrap, grow, ...props }) => (
+const Row = ({ align = 'space-between', valign = 'flex-start', ...props }) => (
   <div css={css`
     display: flex;
-    justify-content: ${align || 'space-between'};
-    align-items: ${valign || 'flex-start'};
-    ${grow && `flex-grow: ${grow};`}
-    width: ${wide ? '100%' : 'auto'};
-    ${wrap && 'flex-wrap: wrap;'}
+    justify-content: ${align};
+    align-items: ${valign};
     >:last-of-type {
       margin-right: 0 !important;
     }
@@ -54,7 +51,7 @@ export const Flex = {
   Row
 }
 
-export const Theme = props => (
+export const Theme = (props: any) => (
   <div css={css`
     font-family: 'Arial';
     -webkit-font-smoothing: antialiased;

@@ -1,9 +1,9 @@
-export const useActions = (dispatch, actionList) => {
+export const useActions = (dispatch: Function, actionList: any) => {
   let actions = {}
   for (const action of Object.keys(actionList)) {
     actions = {
       ...actions,
-      [action]: args => dispatch(actionList[action](args))
+      [action]: (args: any) => dispatch(actionList[action](args))
     }
   }
   return actions

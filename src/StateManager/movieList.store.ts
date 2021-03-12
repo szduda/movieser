@@ -4,7 +4,15 @@ export const defaultState = {
   total: 0,
   page: 1
 }
-export const movieListReducer = (state, action) => {
+
+export type MovieListType = {
+  searchTerm: string,
+  searchResults: Array<any>,
+  total: number,
+  page: number
+}
+
+export const movieListReducer = (state: MovieListType, action: any) => {
   const { payload, type } = action
 
   switch (type) {
@@ -32,15 +40,15 @@ export const movieListReducer = (state, action) => {
 }
 
 export const movieListActions = {
-  setMovies: payload => ({
+  setMovies: (payload: { movies: Array<any>, total: number }) => ({
     type: 'setMovies',
     payload
   }),
-  setSearchTerm: payload => ({
+  setSearchTerm: (payload: { term: string }) => ({
     type: 'setSearchTerm',
     payload
   }),
-  setPage: payload => ({
+  setPage: (payload: number) => ({
     type: 'setPage',
     payload
   })
